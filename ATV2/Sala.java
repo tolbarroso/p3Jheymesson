@@ -1,4 +1,4 @@
-package ATV 2;
+package ATV2;
 
 public class Sala {
     private String nome;
