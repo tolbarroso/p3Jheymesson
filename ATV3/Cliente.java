@@ -95,10 +95,28 @@ public class Cliente implements Operacoes {
         }
     }
 
+    /*
+     * protected void atualizarHistorico(Operacao operacao) {
+     * for (int i = historico.length - 1; i > 0; i--) {
+     * historico[i] = historico[i - 1];
+     * }
+     * historico[0] = operacao;
+     * }
+     */
+
     protected void atualizarHistorico(Operacao operacao) {
-        for (int i = historico.length - 1; i > 0; i--) {
-            historico[i] = historico[i - 1];
+        Operacao[] antigoVetor = historico.clone();
+        Operacao[] vetor = new Operacao[30];
+
+        for (int i = 0; i < 28; i++) {
+            if (antigoVetor[i] == null) {
+                break;
+            }
+            vetor[i + 1] = antigoVetor[i];
         }
-        historico[0] = operacao;
+
+        antigoVetor = vetor;
+        antigoVetor[0] = new Operacao("Atualização", operacao.getValor(), operacao.getData(), operacao.getHora());
     }
+
 }
