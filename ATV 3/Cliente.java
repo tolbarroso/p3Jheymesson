@@ -95,7 +95,7 @@ public class Cliente implements Operacoes {
         }
     }
 
-    private void atualizarHistorico(Operacao operacao) {
+    protected void atualizarHistorico(Operacao operacao) {
         for (int i = historico.length - 1; i > 0; i--) {
             historico[i] = historico[i - 1];
         }
